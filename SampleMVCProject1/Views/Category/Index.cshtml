@@ -1,0 +1,51 @@
+﻿@using SampleMVCProject1.Models
+@model List<Category>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">
+                <h5 class="card-title float-start">Product List</h5>
+            </div>
+            <div class="col-md-3">
+                @Html.ActionLink("New Category", "AddCategory", null, new { @class = "btn btn-success btn-sm" })
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Category Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Category c in Model)
+                {
+                    <tr>
+                        <td>@c.CategoryID</td>
+                        <td>@c.CategoryName</td>
+                        <td>@c.Description</td>
+                        
+                        @if (c.CategoryID != null)
+                        {
+                            <td>@c.CategoryName</td>
+                        }
+                        else
+                        {
+                            <td>Undefined Category </td>
+                        }
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = c.CategoryID }, new { @class = "btn btn-primary btn-sm" })
+                            @Html.ActionLink("Update", "Update", new { id = c.CategoryID }, new { @class = "btn btn-warning btn-sm" })
+                            @Html.ActionLink("Delete", "Delete", new { id = c.CategoryID }, new { @class = "btn btn-danger btn-sm" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

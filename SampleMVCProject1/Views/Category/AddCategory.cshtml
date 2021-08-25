@@ -1,0 +1,30 @@
+﻿@model SampleMVCProject1.Models.Category
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">
+                <h5 class="card-title float-start">Product List</h5>
+            </div>
+            <div class="col-md-3">
+                @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-primary btn-sm" })
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", placeholder = "Category Name" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(x => x.Description, new { @class = "rich-text-box", placeholder = "Description" })
+                    </div>
+                    
+                    <button class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
